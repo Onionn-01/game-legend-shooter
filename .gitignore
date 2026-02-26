@@ -1,0 +1,39 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[探]Logs/
+/[Mm]emoryCaptures/
+
+# Asset meta data không được ignore
+!/[Aa]ssets/**/*.meta
+
+# Các file tự sinh của Visual Studio
+VisualStudioProjectTemplates/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# File cài đặt và build ra máy ảo/điện thoại
+*.apk
+*.aab
+*.unitypackage
