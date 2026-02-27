@@ -169,3 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc52330a28ed1024f8a68cd438ea1af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  lifeTime: 2
+  xpPrefab: {fileID: 1638629353802922404, guid: 83a66a0497ff5844f922dd86af020899, type: 3}

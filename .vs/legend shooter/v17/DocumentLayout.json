@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\code_nam3_ky2\\legend shooter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|d:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|d:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|D:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|D:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|d:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|D:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|D:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\xpgem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\xpgem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47828B4A-2770-CB1E-577B-F81A6CE151D0}|Assembly-CSharp.csproj|D:\\code_nam3_ky2\\legend shooter\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,37 +34,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "XPGem.cs",
+              "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\XPGem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\XPGem.cs",
+              "ToolTip": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\XPGem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\XPGem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T02:54:15.802Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerStats.cs",
+              "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\PlayerStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerStats.cs",
+              "ToolTip": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\PlayerStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerStats.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwD4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T02:47:59.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
+              "ToolTip": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T02:37:42.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EnemyAI.cs",
               "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\EnemyAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyAI.cs",
               "ToolTip": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\EnemyAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyAI.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwBsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T02:10:58.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Bullet.cs",
               "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\Bullet.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Bullet.cs",
               "ToolTip": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\Bullet.cs",
               "RelativeToolTip": "Assets\\Scripts\\Bullet.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwBkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T01:57:33.272Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\code_nam3_ky2\\legend shooter\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
