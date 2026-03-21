@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement; // Để load lại game khi chết
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("UI & Panel")]
+    public GameObject levelUpPanel; // Kéo LevelUpPanel vào đây
+
     [Header("Health Settings")]
     public float maxHealth = 100f;
     public float currentHealth;
@@ -17,9 +20,14 @@ public class PlayerStats : MonoBehaviour
     public Slider xpSlider;
     public TextMeshProUGUI levelText;
 
+    [Header("Attack Settings")]
+    public float meleeDamage = 20f;
+    public float bulletDamage = 50f;
+
     void Start()
     {
         currentHealth = maxHealth;
+        if (levelUpPanel != null) levelUpPanel.SetActive(false);
         UpdateUI();
     }
 
@@ -27,17 +35,11 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth -= damage;
         UpdateUI();
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (currentHealth <= 0) Die();
     }
 
     void Die()
     {
-        Debug.Log("Player đã tử trận!");
-        // Load lại cảnh hiện tại (Restart game)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -56,16 +58,40 @@ public class PlayerStats : MonoBehaviour
         level++;
         currentXP -= xpToNextLevel;
         xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.2f);
-        // ... code cũ của bạn ...
 
-        // Tăng sức mạnh cho Player khi lên cấp
-        meleeDamage += 5f;
-        bulletDamage += 10f;
+        // Dừng game và hiện bảng
+        Time.timeScale = 0f;
+        if (levelUpPanel != null) levelUpPanel.SetActive(true);
+
+        UpdateUI();
+    }
+
+    // --- CÁC HÀM CHO NÚT BẤM (BUTTON ON CLICK) ---
+
+    public void BtnUpgradeMoveSpeed()
+    {
+        GetComponent<PlayerController>().moveSpeed += 1f;
+        ResumeGame();
+    }
+
+    public void BtnUpgradeBulletCount()
+    {
+        GetComponent<PlayerController>().bulletCount += 1;
+        ResumeGame();
+    }
+
+    public void BtnUpgradeHealth()
+    {
         maxHealth += 20f;
-
-        // Bonus: Hồi đầy máu khi lên cấp cho "sướng"
         currentHealth = maxHealth;
         UpdateUI();
+        ResumeGame();
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        if (levelUpPanel != null) levelUpPanel.SetActive(false);
     }
 
     void UpdateUI()
@@ -76,17 +102,10 @@ public class PlayerStats : MonoBehaviour
             xpSlider.value = currentXP;
         }
         if (levelText != null) levelText.text = "LV: " + level;
-
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
     }
-
-    [Header("Attack Settings")]
-    public float meleeDamage = 20f; // Sát thương khi quái chạm vào người
-    public float bulletDamage = 50f; // Sát thương của đạn (dùng cho bước sau)
-
-   
 }
