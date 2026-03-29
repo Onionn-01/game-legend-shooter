@@ -1,19 +1,33 @@
 ﻿using UnityEngine;
+using System.Collections.Generic; // Cần thiết để dùng List
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Transform player;
-    public SpriteRenderer floorRenderer; // MỚI: Để lấy kích thước sàn
+    [Header("Enemy Prefabs")]
+    public GameObject normalEnemyPrefab;
+    public GameObject rangedEnemyPrefab;
+    public GameObject bigChunkPrefab;
 
+    [Header("References")]
+    public Transform player;
+    public SpriteRenderer floorRenderer;
+    private PlayerStats playerStats; // Lưu reference để check level nhanh hơn
+
+    [Header("Spawn Settings")]
     public float spawnRate = 2f;
     public float spawnDistance = 10f;
-
     private float nextSpawnTime;
+
+    void Start()
+    {
+        if (player != null)
+        {
+            playerStats = player.GetComponent<PlayerStats>();
+        }
+    }
 
     void Update()
     {
-        // Thêm điều kiện kiểm tra floorRenderer
         if (Time.time >= nextSpawnTime && player != null && floorRenderer != null)
         {
             SpawnEnemy();
@@ -23,36 +37,66 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // 1. Tính toán vị trí ngẫu nhiên quanh Player (giống code cũ)
+        // 1. Xác định loại quái sẽ spawn dựa trên Level
+        GameObject prefabToSpawn = SelectEnemyByLevel();
+
+        // 2. Tính toán vị trí ngẫu nhiên và giới hạn trong sàn (Giữ nguyên logic cũ của bạn)
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         Vector3 spawnPosition = player.position + (Vector3)(randomDirection * spawnDistance);
 
-        // 2. Lấy giới hạn biên của Floor
         Bounds bounds = floorRenderer.bounds;
-
-        // 3. Ép tọa độ phải nằm TRONG sàn (Clamp)
-        // Nếu spawnPosition vượt quá biên sàn, nó sẽ bị kéo về đúng mép sàn
         float clampedX = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
         float clampedY = Mathf.Clamp(spawnPosition.y, bounds.min.y, bounds.max.y);
-
         Vector3 finalPosition = new Vector3(clampedX, clampedY, 0);
 
-        // 4. Sinh ra Enemy tại vị trí an toàn
-        Instantiate(enemyPrefab, finalPosition, Quaternion.identity);
+        // 3. Sinh ra quái
+        GameObject enemy = Instantiate(prefabToSpawn, finalPosition, Quaternion.identity);
 
-        GameObject enemy = Instantiate(enemyPrefab, finalPosition, Quaternion.identity);
+        // 4. Thiết lập chỉ số (Scale theo level)
         EnemyAI enemyScript = enemy.GetComponent<EnemyAI>();
-
-        if (enemyScript != null)
+        if (enemyScript != null && playerStats != null)
         {
-            // Lấy level hiện tại của Player
-            int pLevel = player.GetComponent<PlayerStats>().level;
+            int pLevel = playerStats.level;
 
-            // Công thức tăng chỉ số quái (Bạn có thể tùy chỉnh con số)
-            float scaledHP = 20f + (pLevel * 10f);   // Mỗi level quái tăng 10 máu
-            float scaledDmg = 5f + (pLevel * 2f);   // Mỗi level quái tăng 2 sát thương
+            // Chỉ số cơ bản tăng dần theo level player
+            float scaledHP = 20f + (pLevel * 10f);
+            float scaledDmg = 5f + (pLevel * 2f);
+
+            // Bonus thêm cho con Big Chunk nếu nó xuất hiện
+            if (prefabToSpawn == bigChunkPrefab)
+            {
+                scaledHP *= 3f; // Máu gấp 3 quái thường
+                scaledDmg *= 2f;
+            }
 
             enemyScript.SetEnemyStats(scaledHP, scaledDmg);
         }
+    }
+
+    GameObject SelectEnemyByLevel()
+    {
+        int currentLevel = (playerStats != null) ? playerStats.level : 1;
+
+        // Tạo một danh sách các quái "hợp lệ" tại level hiện tại
+        List<GameObject> possibleEnemies = new List<GameObject>();
+
+        // Luôn luôn có quái thường
+        possibleEnemies.Add(normalEnemyPrefab);
+
+        // Level 5 trở lên mới có quái xa
+        if (currentLevel >= 5)
+        {
+            possibleEnemies.Add(rangedEnemyPrefab);
+        }
+
+        // Level 8 trở lên mới có quái to
+        if (currentLevel >= 8)
+        {
+            possibleEnemies.Add(bigChunkPrefab);
+        }
+
+        // Chọn ngẫu nhiên 1 con trong danh sách những con đã đạt điều kiện level
+        int randomIndex = Random.Range(0, possibleEnemies.Count);
+        return possibleEnemies[randomIndex];
     }
 }

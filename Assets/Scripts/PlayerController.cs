@@ -9,16 +9,16 @@ public class PlayerController : MonoBehaviour
     [Header("Shooting Settings")]
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public Transform gunPivot;       // MỚI: Kéo Object GunPivot vào đây
     public float bulletForce = 20f;
-    public int bulletCount = 1;      // MỚI: Số lượng tia đạn
-    public float spreadAngle = 10f;  // MỚI: Độ tỏa của đạn
+    public int bulletCount = 1;
+    public float spreadAngle = 10f;
 
     private Vector2 moveInput;
     private Vector2 mousePos;
 
     void Update()
     {
-        // Chỉ cho phép thao tác khi game không bị tạm dừng (Time.timeScale != 0)
         if (Time.timeScale == 0) return;
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -29,32 +29,40 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
+
+        // --- CHỈNH SỬA PHẦN XOAY TẠI ĐÂY ---
+        if (gunPivot != null)
+        {
+            // Tính toán góc xoay dựa trên vị trí chuột và GunPivot
+            Vector2 lookDir = mousePos - (Vector2)gunPivot.position;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+
+            // Xoay cái GunPivot thay vì xoay Rigidbody của Player
+            gunPivot.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     void FixedUpdate()
     {
+        // Giữ nguyên chức năng di chuyển
         rb.linearVelocity = moveInput.normalized * moveSpeed;
 
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        // ĐÃ XÓA: rb.rotation = angle (Để nhân vật không tự xoay nữa)
     }
 
     void Shoot()
     {
-        // Tính toán góc bắt đầu để các tia đạn tỏa đều
+        // Giữ nguyên chức năng bắn nhiều tia của bạn
         float startAngle = -spreadAngle * (bulletCount - 1) / 2f;
 
         for (int i = 0; i < bulletCount; i++)
         {
             float currentAngle = startAngle + (i * spreadAngle);
-            // Tạo góc xoay cho từng tia đạn
             Quaternion bulletRotation = firePoint.rotation * Quaternion.Euler(0, 0, currentAngle);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
             Rigidbody2D brb = bullet.GetComponent<Rigidbody2D>();
 
-            // Đẩy đạn đi theo hướng "up" của chính viên đạn đó (đã bao gồm góc lệch)
             brb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
         }
     }

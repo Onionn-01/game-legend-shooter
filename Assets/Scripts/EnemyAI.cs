@@ -11,10 +11,10 @@ public class EnemyAI : MonoBehaviour
     [Header("Drops")]
     public GameObject xpPrefab;
 
-    private Transform player;
-    private Rigidbody2D rb; // Thêm Rigidbody để điều khiển vật lý
+    protected Transform player;  // Đổi private thành protected
+    protected Rigidbody2D rb;     // Đổi private thành protected // Thêm Rigidbody để điều khiển vật lý
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Lấy component Rigidbody
 

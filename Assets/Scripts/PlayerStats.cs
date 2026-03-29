@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.GameOver(); // Gọi hiện bảng chết thay vì load lại ngay
     }
 
     public void GainXP(int amount)
