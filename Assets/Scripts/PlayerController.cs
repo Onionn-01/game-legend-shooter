@@ -65,5 +65,10 @@ public class PlayerController : MonoBehaviour
 
             brb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
         }
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.shootSound);
+        }
     }
 }

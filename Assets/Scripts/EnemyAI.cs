@@ -47,6 +47,11 @@ public class EnemyAI : MonoBehaviour
         {
             Instantiate(xpPrefab, transform.position, Quaternion.identity);
         }
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyDieSound);
+        }
         Destroy(gameObject);
     }
 
