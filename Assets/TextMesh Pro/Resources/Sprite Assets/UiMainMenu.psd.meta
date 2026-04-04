@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: ee5b750382e829447850a853d970a640
+guid: 4e05962538dd5f74f96bf9373768529a
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 118197768578201170
     second: UiMainMenu_0
+  - first:
+      213: 1877536579104660641
+    second: UiMainMenu_1
+  - first:
+      213: -5201582308037023827
+    second: UiMainMenu_2
+  - first:
+      213: -1798636202386150562
+    second: UiMainMenu_3
+  - first:
+      213: -7649955702783149078
+    second: UiMainMenu_4
+  - first:
+      213: -1988616533793931890
+    second: UiMainMenu_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,12 +118,12 @@ TextureImporter:
       name: UiMainMenu_0
       rect:
         serializedVersion: 2
-        x: 294
-        y: 416
-        width: 348
-        height: 140
-      alignment: 9
-      pivot: {x: 0.4996499, y: 0.46717244}
+        x: 297
+        y: 417
+        width: 347
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,67 +137,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UiMainMenu_1
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 301
-        width: 114
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1708006dc17096641b348076240a1035
-      internalID: -1977177682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UiMainMenu_2
-      rect:
-        serializedVersion: 2
-        x: 390
-        y: 186
-        width: 159
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff809d24eb1dd5f4493f76430f83217b
-      internalID: 1179372841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: UiMainMenu_3
       rect:
         serializedVersion: 2
-        x: 420
-        y: 90
-        width: 93
-        height: 40
+        x: 411
+        y: 297
+        width: 118
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3018cd5f8959c0e4eba7c9c86c941947
-      internalID: 1463844591
+      spriteID: e5bad9c47e5f907e0800000000000000
+      internalID: -1798636202386150562
       vertices: []
       indices: 
       edges: []
@@ -191,20 +162,42 @@ TextureImporter:
       name: UiMainMenu_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 960
-        height: 594
+        x: 387
+        y: 185
+        width: 166
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9af7c60891ff3ab44b43a4bea6757100
-      internalID: -299838110
+      spriteID: aebf22cc1d5e5d590800000000000000
+      internalID: -7649955702783149078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UiMainMenu_5
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 89
+        width: 98
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d7eb47cc30764e0800000000000000
+      internalID: -1988616533793931890
       vertices: []
       indices: 
       edges: []
@@ -213,7 +206,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 524b1cd625d15934e82cc928c288ad35
+    spriteID: 5a9924eb0c52ed448a8490a760ddc17a
     internalID: 0
     vertices: []
     indices: 
@@ -221,17 +214,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-      - key: SpriteEditor.SliceOnImport
-        value: True
+      entries: []
     nameFileIdTable:
       UiMainMenu_0: 118197768578201170
-      UiMainMenu_1: -1977177682
-      UiMainMenu_2: 1179372841
-      UiMainMenu_3: 1463844591
-      UiMainMenu_4: -299838110
+      UiMainMenu_1: 1877536579104660641
+      UiMainMenu_2: -5201582308037023827
+      UiMainMenu_3: -1798636202386150562
+      UiMainMenu_4: -7649955702783149078
+      UiMainMenu_5: -1988616533793931890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,6 +11,26 @@ public class MainMenuController : MonoBehaviour
     [Header("Audio Settings")]
     public AudioMixer mainMixer; // Kéo file MainMixer vào đây
 
+    public Slider musicSlider; // Kéo Slider Music vào đây
+    public Slider sfxSlider;   // Kéo Slider SFX vào đây
+
+    void Start()
+    {
+        // TẢI DỮ LIỆU KHI MỞ MENU
+        // Nếu chưa có dữ liệu (lần đầu chơi), mặc định là 0.75f (75%)
+        float savedMusic = PlayerPrefs.GetFloat("MusicVolSave", 0.75f);
+        float savedSFX = PlayerPrefs.GetFloat("SFXVolSave", 0.75f);
+
+        // Gán giá trị vào Slider để nút trượt nhảy đúng vị trí
+        musicSlider.value = savedMusic;
+        sfxSlider.value = savedSFX;
+
+        // Áp dụng luôn vào Mixer
+        SetMusicVolume(savedMusic);
+        SetSFXVolume(savedSFX);
+    }
+
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Game_Screen");
@@ -31,14 +51,18 @@ public class MainMenuController : MonoBehaviour
     // Hàm chỉnh nhạc nền (Music)
     public void SetMusicVolume(float volume)
     {
-        // Công thức logarit để âm thanh giảm đều tai hơn
         mainMixer.SetFloat("MusicVol", Mathf.Log10(volume) * 20);
+
+        // LƯU DỮ LIỆU
+        PlayerPrefs.SetFloat("MusicVolSave", volume);
     }
 
-    // Hàm chỉnh hiệu ứng (SFX)
     public void SetSFXVolume(float volume)
     {
         mainMixer.SetFloat("SFXVol", Mathf.Log10(volume) * 20);
+
+        // LƯU DỮ LIỆU
+        PlayerPrefs.SetFloat("SFXVolSave", volume);
     }
 
     public void QuitGame()
