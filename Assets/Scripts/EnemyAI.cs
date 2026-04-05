@@ -8,17 +8,18 @@ public class EnemyAI : MonoBehaviour
     public float currentHealth;
     public float damage;
 
+    [Header("Visuals")]
+    public Transform visualSprite; // Kéo Object con chứa Sprite của quái vào đây
+
     [Header("Drops")]
     public GameObject xpPrefab;
 
-    protected Transform player;  // Đổi private thành protected
-    protected Rigidbody2D rb;     // Đổi private thành protected // Thêm Rigidbody để điều khiển vật lý
+    protected Transform player;
+    protected Rigidbody2D rb;
 
     protected virtual void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Lấy component Rigidbody
-
-        // Đảm bảo quái không bị xoay tròn khi va chạm
+        rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -55,17 +56,33 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Dùng FixedUpdate thay cho Update để xử lý di chuyển vật lý mượt hơn
     void FixedUpdate()
     {
         if (player != null)
         {
-            // 1. Tính toán hướng về phía Player
+            // 1. Di chuyển về phía Player
             Vector2 direction = (player.position - transform.position).normalized;
-
-            // 2. Gán vận tốc trực tiếp (linearVelocity dành cho Unity 6)
-            // Nếu bạn dùng bản thấp hơn, hãy đổi thành rb.velocity
             rb.linearVelocity = direction * speed;
+
+            // 2. XOAY MẶT VỀ PHÍA PLAYER (MỚI)
+            HandleFlip();
+        }
+    }
+
+    void HandleFlip()
+    {
+        if (visualSprite != null)
+        {
+            // Nếu Player nằm bên phải quái
+            if (player.position.x > transform.position.x)
+            {
+                visualSprite.localScale = new Vector3(1, 1, 1);
+            }
+            // Nếu Player nằm bên trái quái
+            else
+            {
+                visualSprite.localScale = new Vector3(-1, 1, 1);
+            }
         }
     }
 
