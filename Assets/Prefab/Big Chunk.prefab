@@ -277,3 +277,5 @@ MonoBehaviour:
   damage: 20
   visualSprite: {fileID: 1693328933957076868}
   xpPrefab: {fileID: 1638629353802922404, guid: 83a66a0497ff5844f922dd86af020899, type: 3}
+  healthPotionPrefab: {fileID: 6979081759809933674, guid: d0996d5086567dd4faf6c59a8b1da267, type: 3}
+  healthDropChance: 0.1

@@ -14,6 +14,10 @@ public class EnemyAI : MonoBehaviour
     [Header("Drops")]
     public GameObject xpPrefab;
 
+    public GameObject healthPotionPrefab;
+    [Range(0f, 1f)]
+    public float healthDropChance = 0.1f; // 10%
+
     protected Transform player;
     protected Rigidbody2D rb;
 
@@ -44,15 +48,33 @@ public class EnemyAI : MonoBehaviour
 
     void Die()
     {
+        // random vị trí rơi
+        Vector3 offset = Random.insideUnitCircle * 0.5f;
+
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            player.GetComponent<PlayerStats>().AddKill();
+        }
+        // Drop XP
         if (xpPrefab != null)
         {
-            Instantiate(xpPrefab, transform.position, Quaternion.identity);
+            Instantiate(xpPrefab, transform.position + offset, Quaternion.identity);
+        }
+
+        // Drop máu theo tỉ lệ
+        if (healthPotionPrefab != null && Random.value < healthDropChance)
+        {
+            Vector3 offset2 = Random.insideUnitCircle * 0.5f;
+            Instantiate(healthPotionPrefab, transform.position + offset2, Quaternion.identity);
         }
 
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.enemyDieSound);
         }
+
         Destroy(gameObject);
     }
 

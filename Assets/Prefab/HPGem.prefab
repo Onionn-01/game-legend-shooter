@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1638629353802922404
+--- !u!1 &6979081759809933674
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1758413862165639077}
-  - component: {fileID: 3234519042448503695}
-  - component: {fileID: 3533067348932450250}
-  - component: {fileID: 6556123478030330378}
+  - component: {fileID: 8671868530672146185}
+  - component: {fileID: 1736712587909214925}
+  - component: {fileID: 1328946912135360820}
+  - component: {fileID: 8666731515421424370}
   m_Layer: 0
-  m_Name: XPGem
+  m_Name: HPGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1758413862165639077
+--- !u!4 &8671868530672146185
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638629353802922404}
+  m_GameObject: {fileID: 6979081759809933674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7, y: 2.22, z: 0}
-  m_LocalScale: {x: 0.2564, y: 0.1821, z: 1}
+  m_LocalPosition: {x: 0.72997, y: -0.02424, z: 0}
+  m_LocalScale: {x: 0.10352424, y: 0.10764302, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3234519042448503695
+--- !u!212 &1736712587909214925
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638629353802922404}
+  m_GameObject: {fileID: 6979081759809933674}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6588763206075820222, guid: fa0499d3dc6c56b4fbaaf6d347944409, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9865303, a: 1}
+  m_Sprite: {fileID: 2120567547779885532, guid: f892fae34ce62d14b9e32332d6d6396d, type: 3}
+  m_Color: {r: 1, g: 0.057864446, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,13 +93,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &3533067348932450250
+--- !u!114 &1328946912135360820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979081759809933674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7372440e33bf204d8ab80188ed86de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPotion
+  healAmount: 20
+--- !u!58 &8666731515421424370
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638629353802922404}
+  m_GameObject: {fileID: 6979081759809933674}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -129,16 +142,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.99999994
---- !u!114 &6556123478030330378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638629353802922404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb62e0914575b74458f352d04c58c26d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XPGem
-  xpAmount: 10

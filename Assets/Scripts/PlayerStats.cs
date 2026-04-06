@@ -24,10 +24,23 @@ public class PlayerStats : MonoBehaviour
     public float meleeDamage = 20f;
     public float bulletDamage = 50f;
 
+    [Header("Kill Counter")]
+    public int killCount = 0;
+    public TextMeshProUGUI killText;
+
+    public GameObject killPanel;
     void Start()
     {
         currentHealth = maxHealth;
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
+        if (killPanel != null)
+            killPanel.SetActive(true);
+        UpdateUI();
+    }
+
+    public void AddKill()
+    {
+        killCount++;
         UpdateUI();
     }
 
@@ -40,6 +53,8 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
+        if (killPanel != null)
+            killPanel.SetActive(false);
         GameManager.instance.GameOver(); // Gọi hiện bảng chết thay vì load lại ngay
     }
 
@@ -57,11 +72,21 @@ public class PlayerStats : MonoBehaviour
     {
         level++;
         currentXP -= xpToNextLevel;
-        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.2f);
+        xpToNextLevel = Mathf.RoundToInt(50 * Mathf.Pow(level, 1.5f));
 
         // Dừng game và hiện bảng
         Time.timeScale = 0f;
         if (levelUpPanel != null) levelUpPanel.SetActive(true);
+
+        UpdateUI();
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
 
         UpdateUI();
     }
@@ -107,5 +132,8 @@ public class PlayerStats : MonoBehaviour
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
+
+        if (killText != null)
+            killText.text = "KILL: " + killCount;
     }
 }
